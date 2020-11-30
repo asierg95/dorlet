@@ -1,24 +1,5 @@
 #!/bin/bash -ex
 
-touch /home/ikerlan/scriptOK
-
-while [ "$#" -gt 0 ]; do
-    case "$1" in
-        --runtime)                      APP_RUNTIME="$2" ;;
-        --containerRegistryURL)                HOST_NAME="$2" ;; 
-        --containerRegistryUsername)                REGISTRY_USERNAME="$2" ;; 
-        --containerRegistryPassword)                REGISTRY_PASSWORD="$2" ;; 
-    esac
-    shift
-done
-
-touch /home/ikerlan/${APP_RUNTIME}
-touch /home/ikerlan/${HOST_NAME}
-touch /home/ikerlan/${REGISTRY_USERNAME}
-touch /home/ikerlan/${REGISTRY_PASSWORD}
-
-
-
 APP_PATH="/app"
 ENVVARS="${APP_PATH}/env-vars"
 DOCKERCOMPOSE="${APP_PATH}/docker-compose.yml"
@@ -45,6 +26,9 @@ while [ "$#" -gt 0 ]; do
         --aad-appid)                    PCS_AAD_APPID="$2" ;;
         --aad-appsecret)                PCS_AAD_APPSECRET="$2" ;;
         --keyvault-name)                PCS_KEYVAULT_NAME="$2" ;;
+        --containerRegistryURL)         REGISTRY_URL="$2" ;; 
+        --containerRegistryUsername)    REGISTRY_USERNAME="$2" ;; 
+        --containerRegistryPassword)    REGISTRY_PASSWORD="$2" ;; 
     esac
     shift
 done
@@ -114,6 +98,12 @@ install_docker_ce_retry() {
 
 install_docker_ce_retry
 # ========================================================================
+
+# Configure private Docker registry
+config_for_azure_china() {
+    apt install gnupg2 pass -y
+    docker login --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD $REGISTRY_URL
+}
 
 # Configure Docker registry based on host name
 # ToDo: Verify if needed still
