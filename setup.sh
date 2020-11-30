@@ -100,10 +100,11 @@ install_docker_ce_retry
 # ========================================================================
 
 # Configure private Docker registry
-config_for_azure_china() {
+config_for_private_docker_registry() {
     apt install gnupg2 pass -y
     docker login --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD $REGISTRY_URL
 }
+config_for_private_docker_registry
 
 # Configure Docker registry based on host name
 # ToDo: Verify if needed still
