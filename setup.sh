@@ -172,7 +172,8 @@ cd ${APP_PATH}
 # Docker compose file
 
 # Note: the "APP_RUNTIME" var needs to be defined before getting here
-DOCKERCOMPOSE_SOURCE="${REPOSITORY}/docker-compose.${APP_RUNTIME}.yml"
+#DOCKERCOMPOSE_SOURCE="${REPOSITORY}/docker-compose.${APP_RUNTIME}.yml"
+DOCKERCOMPOSE_SOURCE="https://raw.githubusercontent.com/asierg95/dorlet/main/docker-compose.dotnet.yml"
 wget $DOCKERCOMPOSE_SOURCE -O ${DOCKERCOMPOSE}
 sed -i 's/${PCS_DOCKER_TAG}/'${PCS_DOCKER_TAG}'/g' ${DOCKERCOMPOSE}
 
