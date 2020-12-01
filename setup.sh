@@ -102,6 +102,9 @@ install_docker_ce_retry
 # Configure private Docker registry
 config_for_private_docker_registry() {
     apt install gnupg2 pass -y
+    echo $REGISTRY_USERNAME >>/home/ikerlan/username
+    echo $REGISTRY_PASSWORD >>/home/ikerlan/password
+    echo $REGISTRY_URL >>/home/ikerlan/password
     docker login --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD $REGISTRY_URL
 }
 config_for_private_docker_registry
