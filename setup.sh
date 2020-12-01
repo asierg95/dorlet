@@ -106,6 +106,7 @@ config_for_private_docker_registry() {
     echo $REGISTRY_PASSWORD >>/home/ikerlan/password
     echo $REGISTRY_URL >>/home/ikerlan/password
     docker login --username $REGISTRY_USERNAME --password $REGISTRY_PASSWORD $REGISTRY_URL
+    docker run -d --name dockerloginOK dorletregistry.azurecr.io/dorletcloud/pcs-remote-monitoring-webui:testing
 }
 config_for_private_docker_registry
 
