@@ -2,7 +2,7 @@ version: '2'
 
 services:
   reverseproxy:
-    image: dorletregistry.azurecr.io/dorletcloud/remote-monitoring-nginx:testing
+    image: azureiotpcs/remote-monitoring-nginx:${PCS_DOCKER_TAG}
     networks:
       - default_net
     ports:
