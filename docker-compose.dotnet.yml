@@ -2,7 +2,7 @@ version: '2'
 
 services:
   reverseproxy:
-    image: azureiotpcs/remote-monitoring-nginx:${PCS_DOCKER_TAG}
+    image: dorletregistry.azurecr.io/dorletcloud/remote-monitoring-nginx:testing
     networks:
       - default_net
     ports:
@@ -123,7 +123,7 @@ services:
       - PCS_AAD_APPSECRET
 
   diagnostics:
-    image: azureiotpcs/pcs-diagnostics-dotnet:Diagnostics-2.0.2
+    image: dorletregistry.azurecr.io/dorletcloud/pcs-diagnostics-dotnet:testing
     networks:
       - default_net
     depends_on:
