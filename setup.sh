@@ -47,7 +47,8 @@ validate_parameters
 # ========================================================================
 
 # TODO: move files to Remote Monitoring repositories
-REPOSITORY="https://raw.githubusercontent.com/Azure/pcs-cli/${PCS_RELEASE_VERSION}/solutions/remotemonitoring/single-vm"
+#REPOSITORY="https://raw.githubusercontent.com/Azure/pcs-cli/${PCS_RELEASE_VERSION}/solutions/remotemonitoring/single-vm"
+REPOSITORY="https://raw.githubusercontent.com/asierg95/dorlet/main"
 SCRIPTS_URL="${REPOSITORY}/scripts/"
 
 # ========================================================================
