@@ -26,9 +26,9 @@ while [ "$#" -gt 0 ]; do
         --aad-appid)                    PCS_AAD_APPID="$2" ;;
         --aad-appsecret)                PCS_AAD_APPSECRET="$2" ;;
         --keyvault-name)                PCS_KEYVAULT_NAME="$2" ;;
-        --containerRegistryURL)         REGISTRY_URL="$2" ;; 
-        --containerRegistryUsername)    REGISTRY_USERNAME="$2" ;; 
-        --containerRegistryPassword)    REGISTRY_PASSWORD="$2" ;; 
+        --dockerRegistryURL)            REGISTRY_URL="$2" ;; 
+        --dockerRegistryUsername)       REGISTRY_USERNAME="$2" ;; 
+        --dockerRegistryPassword)       REGISTRY_PASSWORD="$2" ;; 
     esac
     shift
 done
